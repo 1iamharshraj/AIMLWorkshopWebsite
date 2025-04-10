@@ -124,17 +124,19 @@ export default function Home() {
                     <CardDescription className="text-gray-400">{resource.description}</CardDescription>
                   </CardHeader>
                   <CardFooter>
-                    <Link href={resource.link} className="w-full">
-                      {resource.title === "GitHub Repository" ? (
+                    {resource.title === "GitHub Repository" ? (
+                        <Link href={resource.link} className="w-full" target="_blank" rel="noopener noreferrer">
                           <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white">
                             <LinkIcon className="mr-2 h-4 w-4" /> Visit
                           </Button>
-                      ) : (
+                        </Link>
+                    ) : (
+                        <a href={resource.link} download className="w-full">
                           <Button className="w-full bg-gray-800 hover:bg-gray-700 text-white">
                             <Download className="mr-2 h-4 w-4" /> Download
                           </Button>
-                      )}
-                    </Link>
+                        </a>
+                    )}
                   </CardFooter>
                 </Card>
             ))}
